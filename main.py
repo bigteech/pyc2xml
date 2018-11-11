@@ -22,11 +22,15 @@ def get_dis(code):
     fle = open('temp', 'r')
     content = fle.read()
     fle.close()
-    return content
+    return f'''
+{content}
+    '''
 
 def code_to_xml(code):
     if isinstance(code, str):
-        return code
+        return f'''
+            {code}
+        '''
     if not code:
         return ''
     return f''' <code>
