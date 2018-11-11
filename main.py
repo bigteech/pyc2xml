@@ -7,7 +7,10 @@ import tempfile
 def get_code(file):
     absfilename = os.path.abspath(file)
     fle = open(absfilename, 'rb')
-    ret = fle.read()[16:]
+    if sys.version_info.minor >= 7:
+        ret = fle.read()[16:]
+    else:
+        ret = fle.read()[12:]
     fle.close()
     return marshal.loads(ret)
 
