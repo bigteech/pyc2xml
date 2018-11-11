@@ -31,20 +31,20 @@ def code_to_xml(code):
         return ''
     return f''' <code>
         <co_argcount>{code.co_argcount}</co_argcount>
-        <co_cellvars>{code.co_cellvars}</co_cellvars>
+        <co_cellvars>{','.join(code.co_cellvars)}</co_cellvars>
         <co_code>{get_dis(code.co_code)}</co_code>
         <co_consts>{''.join(["<co_const>" + code_to_xml(x) + "</co_const>" for x in code.co_consts])}</co_consts>
         <co_filename>{code.co_filename}</co_filename>
         <co_firstlineno>{code.co_firstlineno}</co_firstlineno>
         <co_flags>{code.co_flags}</co_flags>
-        <co_freevars>{code.co_freevars}</co_freevars>
+        <co_freevars>{','.join(code.co_freevars)}</co_freevars>
         <co_kwonlyargcount>{code.co_kwonlyargcount}</co_kwonlyargcount>
         <co_lnotab>{code.co_lnotab}</co_lntotab>
         <co_name>{code.co_name}</co_name>
-        <co_names>{code.co_names}</co_names>
+        <co_names>{','.join(code.co_names)}</co_names>
         <co_nlocals>{code.co_nlocals}</co_nlocals>
         <co_stacksize>{code.co_stacksize}</co_stacksize>
-        <co_varnames>{code.co_varnames}</co_varnames>
+        <co_varnames>{','.join(code.co_varnames)}</co_varnames>
     </code>'''
 
 if __name__ == '__main__':
